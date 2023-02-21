@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Movie and Weather Information</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <h1>Movie and Weather Information</h1>
+  <nav class="navbar bg-light" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">City Explorer</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav"
+        aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-nav">
+        <form class="d-flex mx-auto" id="search-form">
+          <input type="search" placeholder="Enter a city" class="mr-2 search-input" id="search-input" />
+          <button class="explore-btn btn btn-outline-primary">Explore</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="city-container" id="city-container">
+  </div>
+  <div class="container">
+    <div class="card">
+      <h2>Movie Information</h2>
+      <div class="movie-info"></div>
+    </div>
+    php
+    Copy code
+    <div class="weather-card">
+      <h2>Weather Information</h2>
+      <div class="weather-info"></div>
+    </div>
+  </div>
+  <script src="http://localhost:3000"></script>
+</body>
+</html>
