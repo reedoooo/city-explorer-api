@@ -28,5 +28,4 @@ class Movies {
   }
 }
 
-
 module.exports = getMovies;

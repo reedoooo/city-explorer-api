@@ -8,24 +8,27 @@ function getWeather(req, res, next) {
   const key = 'weather ' + city;
   const weatherUrl = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${process.env.WEATHER_API_KEY}&days=10`;
 
+
   if (cache[key] && (Date.now() - cache[key].timestamp < 240000)) {
     console.log('Weather Cache Hit');
     res.status(200).send(cache[key].data);
-  } else {
-    console.log('Weather Cache Miss');
-    axios.get(weatherUrl)
-      .then(response => response.data.data.map(day => new Forecast(day)))
-      .then(formattedData => {
-        cache[key] = {
-          timestamp: Date.now(),
-          data: formattedData
-        };
-        res.status(200).send(formattedData);
-      })
-      .catch(error => next(error));
   }
+  else {
+    console.log('Weather Cache Miss');
+    cache[key] = {};
+    cache[key].timestamp = Date.now();
+  }
+  axios.get(weatherUrl)
+    .then(response => response.data.data.map(day => new Forecast(day)))
+    // saves cache data in formatted data and send it
+    .then(formattedData => {
+      cache[key].data = formattedData;
+      res.status(200).send(formattedData);
+    })
+    .catch(error => next(error));
 }
 
+// create a weather class so we can store the information in it. //
 class Forecast {
   constructor(day) {
     this.date = day.valid_date;
