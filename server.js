@@ -10,7 +10,7 @@ const cors = require('cors');
 
 app.use(cors());
 
-const PORT = parseInt(process.env.PORT) || 8080;
+const PORT = process.env.PORT || 8080;
 
 
 // const location = require('./modules/location');
