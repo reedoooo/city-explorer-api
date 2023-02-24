@@ -3,9 +3,8 @@
 const axios = require('axios');
 
 function getMovies(req, res, next) {
-  const MOVIE_API_KEY = process.env.REACT_APP_MOVIE_KEY;
   let movie = req.query.searchQuery;
-  let moviesUrl = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&query=${movie}`;
+  let moviesUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_KEY}&query=${movie}`;
   console.log(process.env.MOVIE_API_KEY);
 
 
