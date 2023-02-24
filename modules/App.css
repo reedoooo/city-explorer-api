@@ -30,6 +30,20 @@ body {
 .explore-btn:hover {
   background-color: #0056b3;
 }
+.explore-btn {
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, #0072ff, #33b5ff);
+  color: #fff;
+  padding: 10px 30px;
+  margin-left: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.explore-btn:hover {
+  background: linear-gradient(to right, #0051b3, #1a8cff);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
 .city-details {
   padding: 20px;
   border-radius: 10px;
@@ -97,20 +111,5 @@ body {
 
 .search-input:focus {
   outline: none;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-.explore-btn {
-  border: none;
-  border-radius: 30px;
-  background: linear-gradient(to right, #0072ff, #33b5ff);
-  color: #fff;
-  padding: 10px 30px;
-  margin-left: 5px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.explore-btn:hover {
-  background: linear-gradient(to right, #0051b3, #1a8cff);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
