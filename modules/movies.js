@@ -7,7 +7,6 @@ function getMovies(req, res, next) {
   let moviesUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_KEY}&query=${movie}`;
   console.log(process.env.MOVIE_API_KEY);
 
-
   axios.get(moviesUrl)
     .then(response => {
       let liveInfo = response.data.results.map(movie => new Movies(movie));
