@@ -5,9 +5,9 @@ const cache = require('../cache');
 
 function getWeather(req, res, next) {
 
-  let locationResults = req.query.searchQuery;
-  const key = 'weather ' + locationResults;
-  const weatherUrl = `https://api.weatherbit.io/v2.0/forecast/daily?city=${locationResults}&key=${process.env.REACT_APP_WEATHER_KEY}&days=10`;
+  let searchInput = req.query.searchQuery;
+  const key = 'weather ' + searchInput;
+  const weatherUrl = `https://api.weatherbit.io/v2.0/forecast/daily?city=${searchInput}&key=${process.env.REACT_APP_WEATHER_KEY}&days=10`;
 
   if (cache[key] && (Date.now() - cache[key].timestamp < 240000)) {
     console.log('Weather Cache Hit');
