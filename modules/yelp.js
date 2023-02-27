@@ -6,7 +6,7 @@ const yelpKey = process.env.REACT_APP_YELP_KEY;
 //class
 function getYelp(req, res, next) {
   let yelp = req.query.searchQuery;
-  let yelpUrl = `https://api.yelp.com/v3/business/search/api_key=${process.env.REACT_APP_MOVIE_KEY}&query=${yelp}`;
+  let yelpUrl = `https://api.yelp.com/v3/business/search/api_key=${process.env.REACT_APP_YELP_KEY}&query=${yelp}`;
 
   axios
     .get(yelpUrl)
