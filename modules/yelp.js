@@ -1,12 +1,23 @@
 "use strict";
 
 const axios = require("axios").default;
-const yelpKey = process.env.REACT_APP_YELP_KEY;
 
 //class
 function getYelp(req, res, next) {
   let yelp = req.query.searchQuery;
   let yelpUrl = `https://api.yelp.com/v3/business/search/api_key=${process.env.REACT_APP_YELP_KEY}&query=${yelp}`;
+    const sdk = require("api")(`@yelp-developers/v1.${REACT_APP_YELP_CLIENT}`);
+
+sdk.auth("VALIDATION_ERROR");
+sdk
+  .v3_business_search({
+    location: yelp,
+    sort_by: "best_match",
+    limit: "20",
+  })
+  .then(({ data }) => console.log(data))
+  .catch((err) => console.error(err));
+
 
   axios
     .get(yelpUrl)
