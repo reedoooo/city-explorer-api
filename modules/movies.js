@@ -20,7 +20,7 @@ class Movies {
     this.title = movie.title;
     this.overview = movie.overview;
     this.average_votes = movie.average_votes;
-    this.poster = movie.poster_path;
+    (this.posterImgPath = `https://image.tmdb.org/t/p/w500//${movie.posterImgPath}`),
     this.popularity = movie.popularity;
     this.released_on = movie.release_date;
   }
