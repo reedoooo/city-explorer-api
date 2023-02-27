@@ -8,7 +8,7 @@ const cors = require("cors");
 
 const getWeather = require("./modules/weather");
 const getMovies = require("./modules/movies");
-
+const getYelp = require("./modules/yelp");
 
 app.use(cors());
 
@@ -26,6 +26,7 @@ app.use(cors());
 
 app.get("/weather", getWeather);
 app.get("/movies", getMovies);
+app.get("/yelp", getYelp);
 
 app.get("/", (request, response) => {
   response.send("Your default endpoint is working");
