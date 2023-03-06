@@ -8,7 +8,7 @@ function getWeather(req, res, next) {
   const key = "weather " + searchInput;
   const weatherUrl = `https://api.weatherbit.io/v2.0/forecast/daily?city=${searchInput}&key=${process.env.REACT_APP_WEATHER_KEY}&days=10`;
 
-  if (cache[key] && Date.now() - cache[key].timestamp < 240000) {
+  if (cache[key] && (Date.now() - cache[key].timestamp < 240000)) {
     console.log("Weather Cache Hit");
     res.status(200).send(cache[key].data);
   } else {
