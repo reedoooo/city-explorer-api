@@ -13,19 +13,19 @@ function getWeather(req, res, next) {
     res.status(200).send(cache[key].data);
   } else {
     console.log("Weather Cache Miss");
-    axios
-      .get(weatherUrl)
-      .then((response) => response.data.data.map((day) => new Forecast(day)))
-      .then((formattedData) => {
-        cache[key] = {
-          timestamp: Date.now(),
-          data: formattedData,
-        };
-        res.status(200).send(formattedData);
-      })
-      .catch((error) => next(error));
+    cache[key] = {};
+    cache[key].timestamp = Date.now();
   }
+    axios.get(weatherUrl)
+   .then(response => response.data.data.map(day => new Forecast(day)))
+    // saves cache data in formatted data and send it
+    .then(formattedData => {
+      cache[key].data = formattedData;
+      res.status(200).send(formattedData);
+    })
+    .catch(error => next(error));
 }
+
 
 class Forecast {
   constructor(day) {
